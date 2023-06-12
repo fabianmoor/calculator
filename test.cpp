@@ -1,57 +1,39 @@
 #include <iostream>
-#include <string>
-#include <cmath>
-#include <cstdlib>
+
+
 
 using namespace std;
 
+float firstarray[] = {5, 4, 2, 5};
+float secondarray[] = {5, 2, 4, 1};
 
-//jag behöver en array som lagrar de 
-//sifforna jag har skrivit in. Jag kan
-//sedan lagra vilken uträkning jag ska
-//göra utifrån vad som lagras i list_method
-//Utifrån vad som är i list_method avgör
-//vilken typ av matematisk uträkning
-//som skall göras.
+float firstnumb;
+float secondnumb;
 
+char x = '+';
+int main() {
 
-//ex num1 list_method[0] num2
-//   num1 + num2
-
-int main(){
-
-
-    double list_int[2];
-    string method[1];
-
-    double num1;
-    double num2;
-    double result;
-    num1 = 1;
-    num2 = 1;
-    
-
-    if (method[0] == "+") {
-        result = num1 + num2;
-    } else if (method[0] == "-") {
-        result = num1 - num2;
-    } else if (method[0] == "*") {
-        result = num1 * num2;
-    } else if (method[0] == "/") {
-        result = num1 / num2;
-    } else {
-        cout << "Invalid method." << endl;
-        return 0;
+    if (sizeof(firstarray) == 4) { // 1000
+        firstnumb = firstarray[0] * 1000 + firstarray[1] * 100 + firstarray[2] * 10 + firstarray[3];
+    } else if (sizeof(firstarray) == 3) {
+        firstnumb = firstarray[0] * 100 + firstarray[1] * 10 + firstarray[2];
+    } else if (sizeof(firstarray) == 2) {
+        firstnumb = firstarray[0] * 10 + firstarray[1];
+    } else if (sizeof(firstarray) == 1) {
+        firstnumb = firstarray[0];
     }
 
-    //list_int = []
-    //list_method = []
-
-    // for each *, /, +, - or ^:
-        //append previous int or float.
-        //list_method[0] = i
-    //
-
-
+    if (sizeof(secondarray) == 4) { // 1000
+        secondnumb = secondarray[0] * 1000 + secondarray[1] * 100 + secondarray[2] * 10 + secondarray[3];
+    } else if (sizeof(secondarray) == 3) {
+        secondnumb = secondarray[0] * 100 + secondarray[1] * 10 + secondarray[2];
+    } else if (sizeof(secondarray) == 2) {
+        secondnumb = secondarray[0] * 10 + secondarray[1];
+    } else if (sizeof(secondarray) == 1) {
+        secondnumb = secondarray[0];
+    }
     
+
+    cout << firstnumb << " " << secondnumb << endl;
 }
+
