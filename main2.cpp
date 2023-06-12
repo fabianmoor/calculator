@@ -4,10 +4,12 @@
 #include <unistd.h>
 #include <algorithm>
 #include <iterator>
+#include "test.cpp"
 
 using namespace std;
 
-
+char getch();
+bool methodFound(char x);
 
 
 // Programbeskrivning: 
@@ -49,6 +51,46 @@ using namespace std;
 // Skriv ut Calculatorns "spelfält", snygga till den helt enkelt.
 //
 //
+
+char method_types[4] = {'*', '+', '-', '/'};
+
+char key;
+char numbers[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+float leftcolumn[5];
+float rightcolumn[5];
+
+int main() {
+    
+    key = 0;
+
+    while (true) {
+        key = getch();
+
+
+        bool methodexists = find(begin(method_types), end(method_types), key) != end(method_types);
+        bool numbexists = find(begin(numbers), end(numbers), key) != end(numbers);
+
+        if (methodexists) {
+            cout << key << endl;
+
+        } else if (numbexists) {
+
+            cout << key << endl;
+        }
+    }
+
+
+    cout << methodFound(method) << endl;
+    return 0;
+}
+
+
+
+
+
+
+
 
 
 
@@ -95,26 +137,3 @@ bool methodFound(char x) {
     }
 }
 
-char method_types[4] = {'*', '+', '-', '/'};
-
-
-int main() {
-
-    int left_column[8];
-    int right_column[8];
-    char method;
-    
-    method = 0;
-
-    while (true) {
-        method = getch();
-        bool exists = find(begin(method_types), end(method_types), method) != end(method_types);
-
-        if (exists) {
-            cout << method << endl;
-        } 
-    }
-
-
-    cout << methodFound(method) << endl;
-}
