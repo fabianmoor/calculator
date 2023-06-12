@@ -8,7 +8,7 @@ float secondarray[] = {0, 0, 0, 0, 1};
 float firstnumb;
 float secondnumb;
 
-char method = '+';
+char method;
 
 int firstarraysize = sizeof(firstarray) / sizeof(firstarray[0]);
 int secondarraysize = sizeof(secondarray) / sizeof(secondarray[0]);

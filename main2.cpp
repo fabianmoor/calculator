@@ -5,12 +5,13 @@
 #include <algorithm>
 #include <iterator>
 #include "test.cpp"
+#include <cstdlib>
 
 using namespace std;
 
 char getch();
 bool methodFound(char x);
-
+void printCalculator(); 
 
 // Programbeskrivning: 
 // Kalkylatorn ska fungera genom att live uppdateras
@@ -52,42 +53,98 @@ bool methodFound(char x);
 //
 //
 
+
+// Definerar lite variablar
 char method_types[4] = {'*', '+', '-', '/'};
-
-char key;
 char numbers[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+// Definerar key variablen
+char key;
 
+// Definerar arrays som används för att 
+// slå ihop de olika tal man skriver.
 float leftcolumn[5];
 float rightcolumn[5];
 
+float input;
+float result;
+
+bool looped;
+
 int main() {
-    
+    // Sätter key = 0 för att undvika errors
     key = 0;
 
+    // Programmets while loop
     while (true) {
-        key = getch();
 
-
+        printCalculator();
+        // true och false variablar som lagrar 
+        // om senaste knapptryck är en symbol
+        // eller om det är en siffra.
         bool methodexists = find(begin(method_types), end(method_types), key) != end(method_types);
         bool numbexists = find(begin(numbers), end(numbers), key) != end(numbers);
 
+        // Lagra varje key-press
+        key = getch();
+
+        // Om *, -, / eller + används
+        // lagra värdet i method-variabeln.
         if (methodexists) {
-            cout << key << endl;
+            method = key;
 
+        // Om siffra blev tryckt på
+        // lagra siffran i värdet.
         } else if (numbexists) {
-
-            cout << key << endl;
+            int numbcount = 0;
+            if (!methodexists) {
+                firstarray[numbcount] = key;
+                numbcount++;
+            } else {
+                looped = true;
+                if (!looped) {
+                    numbcount = 0;
+                }
+                secondarray[numbcount] = key;
+                numbcount++;
+            }
+            numbcount++;
         }
+
+        calculate_arrays();
+
+        result = calculation(firstnumb, secondnumb, method);
+
+
     }
 
 
-    cout << methodFound(method) << endl;
     return 0;
 }
 
 
 
 
+void printCalculator() {
+    system("clear");
+    cout << "------------------------" << endl;
+    cout << "|        Fabians       |" << endl;
+    cout << "|       Calculator     |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|----------------------|" << endl;
+    cout << "|                      |" << endl;
+    cout << "| " << input << endl;
+    cout << "| " << result << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "|                      |" << endl;
+    cout << "------------------------" << endl; 
+}
 
 
 
